@@ -6,923 +6,561 @@
 
 <meta charset="UTF-8">
 
-<meta
-
-  name="viewport"
-
-  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-
->
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>GOLF GUTS | 球筋診断</title>
 
 <style>
 
-/* ========================================
+*{box-sizing:border-box;margin:0;padding:0}
 
-   BASIC
+:root{
 
-======================================== */
+  --bg:#f7f4ed;
 
-* {
+  --card:#fffdf8;
 
-  box-sizing: border-box;
+  --black:#171512;
 
-  margin: 0;
+  --green:#174f3d;
 
-  padding: 0;
+  --gray:#77736c;
 
-}
+  --line:#ddd9d0;
 
-:root {
-
-  --bg: #f7f4ed;
-
-  --card: #fffdf8;
-
-  --black: #171512;
-
-  --green: #174f3d;
-
-  --green2: #26745b;
-
-  --gray: #74716b;
-
-  --line: #dedbd3;
-
-  --soft-green: #e8efe9;
+  --soft:#e8efe9;
 
 }
 
-html {
+html{scroll-behavior:smooth}
 
-  scroll-behavior: smooth;
+body{
 
-}
+  background:var(--bg);
 
-body {
+  color:var(--black);
 
-  background: var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Yu Gothic",sans-serif;
 
-  color: var(--black);
+  padding-top:110px;
 
-  font-family:
-
-    -apple-system,
-
-    BlinkMacSystemFont,
-
-    "Helvetica Neue",
-
-    "Hiragino Kaku Gothic ProN",
-
-    "Yu Gothic",
-
-    "YuGothic",
-
-    sans-serif;
-
-  padding-top: 104px;
-
-  min-height: 100vh;
+  min-height:100vh;
 
 }
 
-/* ========================================
+/* 固定ロゴ */
 
-   FIXED HEADER
+.header{
 
-======================================== */
+  position:fixed;
 
-.site-header {
+  top:0;
 
-  position: fixed;
+  left:0;
 
-  top: 0;
+  width:100%;
 
-  left: 0;
+  height:110px;
 
-  right: 0;
+  z-index:1000;
 
-  height: 104px;
+  display:flex;
 
-  z-index: 1000;
+  align-items:center;
 
-  display: flex;
+  justify-content:center;
 
-  align-items: center;
+  background:rgba(247,244,237,.97);
 
-  justify-content: center;
-
-  background: rgba(247, 244, 237, 0.96);
-
-  border-bottom: 1px solid rgba(23,21,18,.08);
-
-  backdrop-filter: blur(12px);
-
-  -webkit-backdrop-filter: blur(12px);
+  border-bottom:1px solid rgba(0,0,0,.06);
 
 }
 
-.logo-image {
+.logo{
 
-  display: block;
+  width:min(350px,80vw);
 
-  width: min(310px, 68vw);
+  height:auto;
 
-  height: auto;
-
-  object-fit: contain;
+  display:block;
 
 }
 
-/* ========================================
+/* 全体 */
 
-   PAGE
+.page{
 
-======================================== */
+  max-width:760px;
 
-.page {
+  margin:auto;
 
-  width: min(100%, 760px);
-
-  margin: 0 auto;
-
-  padding:
-
-    48px
-
-    20px
-
-    90px;
+  padding:40px 16px 70px;
 
 }
 
-/* ========================================
+/* TOP */
 
-   HERO
+.hero{
 
-======================================== */
+  text-align:center;
 
-.hero {
-
-  text-align: center;
-
-  padding:
-
-    20px
-
-    0
-
-    38px;
+  padding:10px 0 35px;
 
 }
 
-.eyebrow {
+.eyebrow{
 
-  display: inline-block;
+  color:var(--green);
 
-  color: var(--green);
+  font-size:11px;
 
-  font-size: 11px;
+  font-weight:800;
 
-  font-weight: 800;
+  letter-spacing:4px;
 
-  letter-spacing: .25em;
-
-  margin-bottom: 17px;
+  margin-bottom:15px;
 
 }
 
-.hero h1 {
+.hero h1{
 
-  font-size: clamp(31px, 7vw, 48px);
+  font-size:36px;
 
-  line-height: 1.25;
+  line-height:1.3;
 
-  letter-spacing: -.04em;
-
-  margin-bottom: 17px;
+  margin-bottom:16px;
 
 }
 
-.hero p {
+.hero p{
 
-  color: var(--gray);
+  color:var(--gray);
 
-  font-size: 15px;
+  font-size:15px;
 
-  line-height: 1.9;
-
-}
-
-/* ========================================
-
-   PROGRESS
-
-======================================== */
-
-.progress-wrap {
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 8px;
-
-  margin-bottom: 22px;
+  line-height:1.9;
 
 }
 
-.progress {
+/* 進行バー */
 
-  width: 62px;
+.progress{
 
-  height: 4px;
+  display:flex;
 
-  border-radius: 99px;
+  justify-content:center;
 
-  background: #d8d5cd;
+  gap:9px;
 
-  transition: .3s;
-
-}
-
-.progress.active {
-
-  background: var(--green);
+  margin-bottom:24px;
 
 }
 
-/* ========================================
+.bar{
 
-   QUESTION CARD
+  width:62px;
 
-======================================== */
+  height:4px;
 
-.card {
+  border-radius:20px;
 
-  background: var(--card);
-
-  border: 1px solid rgba(23,21,18,.07);
-
-  border-radius: 26px;
-
-  padding: 30px 25px;
-
-  margin-bottom: 20px;
-
-  box-shadow:
-
-    0 14px 45px
-
-    rgba(34, 31, 25, .055);
+  background:#d8d5cd;
 
 }
 
-.step {
+.bar.active{
 
-  display: inline-flex;
-
-  align-items: center;
-
-  padding: 7px 12px;
-
-  border-radius: 999px;
-
-  background: var(--soft-green);
-
-  color: var(--green);
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: .12em;
-
-  margin-bottom: 15px;
+  background:var(--green);
 
 }
 
-.card h2 {
+/* カード */
 
-  font-size: 24px;
+.card{
 
-  line-height: 1.45;
+  background:var(--card);
 
-  letter-spacing: -.02em;
+  border-radius:25px;
 
-  margin-bottom: 9px;
+  padding:27px 21px;
 
-}
+  margin-bottom:20px;
 
-.help {
+  border:1px solid rgba(0,0,0,.06);
 
-  color: var(--gray);
-
-  font-size: 14px;
-
-  line-height: 1.8;
-
-  margin-bottom: 24px;
+  box-shadow:0 14px 40px rgba(40,35,28,.06);
 
 }
 
-/* ========================================
+.step{
 
-   OPTIONS
+  display:inline-block;
 
-======================================== */
+  padding:7px 13px;
 
-.options {
+  border-radius:30px;
 
-  display: grid;
+  background:var(--soft);
 
-  gap: 11px;
+  color:var(--green);
 
-}
+  font-size:11px;
 
-.option {
+  font-weight:800;
 
-  width: 100%;
+  letter-spacing:2px;
 
-  appearance: none;
-
-  -webkit-appearance: none;
-
-  border: 1px solid var(--line);
-
-  border-radius: 17px;
-
-  background: #fff;
-
-  color: var(--black);
-
-  padding: 18px 19px;
-
-  cursor: pointer;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 14px;
-
-  text-align: left;
-
-  transition:
-
-    transform .18s ease,
-
-    border-color .18s ease,
-
-    background .18s ease,
-
-    box-shadow .18s ease;
+  margin-bottom:15px;
 
 }
 
-.option-main {
+.card h2{
 
-  display: flex;
+  font-size:23px;
 
-  align-items: center;
-
-  gap: 14px;
+  margin-bottom:9px;
 
 }
 
-.direction {
+.help{
 
-  width: 39px;
+  color:var(--gray);
 
-  height: 39px;
+  font-size:14px;
 
-  flex: 0 0 39px;
+  line-height:1.8;
 
-  display: grid;
-
-  place-items: center;
-
-  border-radius: 50%;
-
-  background: var(--soft-green);
-
-  color: var(--green);
-
-  font-size: 20px;
-
-  transition: .18s;
+  margin-bottom:22px;
 
 }
 
-.option-text strong {
+/* 選択肢 */
 
-  display: block;
+.options{
 
-  font-size: 17px;
+  display:grid;
 
-  margin-bottom: 3px;
-
-}
-
-.option-text small {
-
-  display: block;
-
-  color: var(--gray);
-
-  font-size: 12px;
-
-  font-weight: 500;
+  gap:11px;
 
 }
 
-.chevron {
+.option{
 
-  color: #aaa69e;
+  width:100%;
 
-  font-size: 22px;
+  border:1px solid var(--line);
 
-}
+  border-radius:18px;
 
-.option:hover {
+  background:#fff;
 
-  transform: translateY(-2px);
+  padding:17px;
 
-  border-color: var(--green);
+  display:flex;
 
-  box-shadow:
+  align-items:center;
 
-    0 10px 24px
+  justify-content:space-between;
 
-    rgba(23,79,61,.08);
+  color:var(--black);
 
-}
+  text-align:left;
 
-.option.selected {
+  cursor:pointer;
 
-  background: var(--green);
-
-  border-color: var(--green);
-
-  color: white;
+  -webkit-tap-highlight-color:transparent;
 
 }
 
-.option.selected .direction {
+.option-left{
 
-  background: rgba(255,255,255,.15);
+  display:flex;
 
-  color: white;
+  align-items:center;
 
-}
-
-.option.selected small {
-
-  color: rgba(255,255,255,.72);
+  gap:14px;
 
 }
 
-.option.selected .chevron {
+.icon{
 
-  color: white;
+  width:42px;
 
-}
+  height:42px;
 
-/* ========================================
+  border-radius:50%;
 
-   RESULT
+  display:grid;
 
-======================================== */
+  place-items:center;
 
-#result-section {
+  background:var(--soft);
 
-  display: none;
+  color:var(--green);
 
-  margin-top: 20px;
-
-}
-
-.result {
-
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-
-    linear-gradient(
-
-      145deg,
-
-      #102d24 0%,
-
-      #174f3d 100%
-
-    );
-
-  color: white;
-
-  border-radius: 28px;
-
-  padding: 32px 25px;
-
-  box-shadow:
-
-    0 20px 55px
-
-    rgba(16,45,36,.18);
+  font-size:22px;
 
 }
 
-.result::before {
+.text strong{
 
-  content: "";
+  display:block;
 
-  position: absolute;
+  font-size:17px;
 
-  width: 210px;
-
-  height: 210px;
-
-  border-radius: 50%;
-
-  right: -110px;
-
-  top: -110px;
-
-  background:
-
-    rgba(255,255,255,.055);
+  margin-bottom:3px;
 
 }
 
-.result-label {
+.text small{
 
-  position: relative;
+  display:block;
 
-  color: #a9cabc;
+  color:var(--gray);
 
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: .22em;
-
-  margin-bottom: 12px;
+  font-size:12px;
 
 }
 
-.result-title {
+.chevron{
 
-  position: relative;
+  color:#aaa69e;
 
-  font-size: 30px;
-
-  line-height: 1.3;
-
-  margin-bottom: 7px;
+  font-size:24px;
 
 }
 
-.result-flight {
+.option.selected{
 
-  position: relative;
+  background:var(--green);
 
-  color: rgba(255,255,255,.75);
+  border-color:var(--green);
 
-  font-size: 16px;
-
-  margin-bottom: 28px;
+  color:white;
 
 }
 
-/* ========================================
+.option.selected .icon{
 
-   RESULT BOXES
+  background:rgba(255,255,255,.15);
 
-======================================== */
-
-.result-grid {
-
-  position: relative;
-
-  display: grid;
-
-  grid-template-columns:
-
-    repeat(2, minmax(0,1fr));
-
-  gap: 12px;
+  color:white;
 
 }
 
-.result-box {
+.option.selected small,
 
-  min-height: 126px;
+.option.selected .chevron{
 
-  padding: 19px;
-
-  border-radius: 18px;
-
-  background:
-
-    rgba(255,255,255,.085);
-
-  border:
-
-    1px solid
-
-    rgba(255,255,255,.12);
+  color:rgba(255,255,255,.8);
 
 }
 
-.result-box-label {
+/* 結果 */
 
-  color: #b8cdc4;
+#resultSection{
 
-  font-size: 12px;
-
-  margin-bottom: 11px;
+  display:none;
 
 }
 
-.result-value {
+.result{
 
-  font-size: 24px;
+  background:linear-gradient(145deg,#102d24,#174f3d);
 
-  font-weight: 800;
+  color:white;
 
-}
+  border-radius:27px;
 
-/* ========================================
+  padding:29px 22px;
 
-   RESULT EXPLANATION
-
-======================================== */
-
-.result-explanation {
-
-  position: relative;
-
-  margin-top: 14px;
-
-  padding: 19px;
-
-  border-radius: 18px;
-
-  background:
-
-    rgba(255,255,255,.07);
-
-  color: rgba(255,255,255,.88);
-
-  font-size: 14px;
-
-  line-height: 1.9;
+  box-shadow:0 20px 50px rgba(16,45,36,.18);
 
 }
 
-.result-explanation strong {
+.result-label{
 
-  color: white;
+  color:#a9cabc;
 
-}
+  font-size:11px;
 
-/* ========================================
+  font-weight:800;
 
-   RESET
+  letter-spacing:3px;
 
-======================================== */
-
-.reset {
-
-  position: relative;
-
-  width: 100%;
-
-  margin-top: 18px;
-
-  padding: 17px;
-
-  border: 0;
-
-  border-radius: 16px;
-
-  background: white;
-
-  color: var(--green);
-
-  font-size: 15px;
-
-  font-weight: 800;
-
-  cursor: pointer;
+  margin-bottom:11px;
 
 }
 
-/* ========================================
+.result h2{
 
-   GUIDE
+  font-size:30px;
 
-======================================== */
-
-.guide {
-
-  margin-top: 28px;
-
-  padding: 22px;
-
-  border-top:
-
-    1px solid
-
-    var(--line);
-
-  color: var(--gray);
-
-  font-size: 13px;
-
-  line-height: 1.9;
+  margin-bottom:7px;
 
 }
 
-.guide strong {
+.flight{
 
-  color: var(--black);
+  color:rgba(255,255,255,.75);
 
-}
+  font-size:16px;
 
-/* ========================================
-
-   FOOTER
-
-======================================== */
-
-.footer {
-
-  text-align: center;
-
-  margin-top: 50px;
-
-  color: #9a968e;
-
-  font-size: 10px;
-
-  letter-spacing: .17em;
+  margin-bottom:24px;
 
 }
 
-/* ========================================
+.result-grid{
 
-   ANIMATION
+  display:grid;
 
-======================================== */
+  grid-template-columns:1fr 1fr;
 
-.fade-in {
-
-  animation:
-
-    fadeIn .38s ease both;
+  gap:11px;
 
 }
 
-@keyframes fadeIn {
+.result-box{
 
-  from {
+  background:rgba(255,255,255,.09);
 
-    opacity: 0;
+  border:1px solid rgba(255,255,255,.12);
 
-    transform: translateY(12px);
+  border-radius:17px;
+
+  padding:18px;
+
+}
+
+.result-box small{
+
+  display:block;
+
+  color:#b8cdc4;
+
+  font-size:12px;
+
+  margin-bottom:9px;
+
+}
+
+.value{
+
+  font-size:25px;
+
+  font-weight:800;
+
+}
+
+.explanation{
+
+  margin-top:13px;
+
+  padding:17px;
+
+  border-radius:17px;
+
+  background:rgba(255,255,255,.07);
+
+  font-size:14px;
+
+  line-height:1.9;
+
+}
+
+.reset{
+
+  width:100%;
+
+  border:0;
+
+  border-radius:15px;
+
+  background:white;
+
+  color:var(--green);
+
+  padding:17px;
+
+  margin-top:17px;
+
+  font-size:15px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+}
+
+/* 補足 */
+
+.note{
+
+  margin-top:25px;
+
+  padding:20px 4px;
+
+  border-top:1px solid var(--line);
+
+  color:var(--gray);
+
+  font-size:12px;
+
+  line-height:1.9;
+
+}
+
+.footer{
+
+  text-align:center;
+
+  color:#99958d;
+
+  font-size:10px;
+
+  letter-spacing:2px;
+
+  margin-top:40px;
+
+}
+
+/* スマホ */
+
+@media(max-width:600px){
+
+  body{padding-top:100px}
+
+  .header{height:100px}
+
+  .logo{width:82vw}
+
+  .page{padding:28px 15px 60px}
+
+  .hero h1{font-size:31px}
+
+  .card{
+
+    padding:24px 18px;
+
+    border-radius:22px;
 
   }
 
-  to {
+  .card h2{font-size:21px}
 
-    opacity: 1;
+  .result{
 
-    transform: translateY(0);
+    padding:26px 19px;
+
+    border-radius:23px;
 
   }
 
 }
 
-/* ========================================
+@media(max-width:390px){
 
-   MOBILE
-
-======================================== */
-
-@media (max-width: 600px) {
-
-  body {
-
-    padding-top: 88px;
-
-  }
-
-  .site-header {
-
-    height: 88px;
-
-  }
-
-  .logo-image {
-
-    width: min(270px, 73vw);
-
-  }
-
-  .page {
-
-    padding:
-
-      28px
-
-      15px
-
-      70px;
-
-  }
-
-  .hero {
-
-    padding-top: 13px;
-
-  }
-
-  .hero h1 {
-
-    font-size: 31px;
-
-  }
-
-  .card {
-
-    padding:
-
-      25px
-
-      18px;
-
-    border-radius: 22px;
-
-  }
-
-  .card h2 {
-
-    font-size: 21px;
-
-  }
-
-  .option {
-
-    padding:
-
-      16px
-
-      15px;
-
-  }
-
-  .result {
-
-    padding:
-
-      27px
-
-      19px;
-
-    border-radius: 23px;
-
-  }
-
-  .result-title {
-
-    font-size: 27px;
-
-  }
-
-}
-
-/* ========================================
-
-   VERY SMALL PHONE
-
-======================================== */
-
-@media (max-width: 390px) {
-
-  .result-grid {
-
-    grid-template-columns: 1fr;
-
-  }
+  .result-grid{grid-template-columns:1fr}
 
 }
 
@@ -932,33 +570,21 @@ body {
 
 <body>
 
-<!-- ======================================
-
-     FIXED GOLF GUTS LOGO
-
-======================================= -->
-
-<header class="site-header">
+<header class="header">
 
   <img
 
     src="IMG_0932.jpeg"
 
-    alt="GOLF GUTS DESIGN YOUR GOLF LIFE"
+    alt="GOLF GUTS"
 
-    class="logo-image"
+    class="logo"
 
   >
 
 </header>
 
 <main class="page">
-
-<!-- ======================================
-
-     HERO
-
-======================================= -->
 
 <section class="hero">
 
@@ -986,65 +612,23 @@ body {
 
 </section>
 
-<!-- ======================================
+<div class="progress">
 
-     PROGRESS
+  <div class="bar active" id="bar1"></div>
 
-======================================= -->
+  <div class="bar" id="bar2"></div>
 
-<div class="progress-wrap">
-
-  <div
-
-    class="progress active"
-
-    id="progress1">
-
-  </div>
-
-  <div
-
-    class="progress"
-
-    id="progress2">
-
-  </div>
-
-  <div
-
-    class="progress"
-
-    id="progress3">
-
-  </div>
+  <div class="bar" id="bar3"></div>
 
 </div>
 
-<!-- ======================================
+<!-- STEP 1 -->
 
-     STEP 1
+<section class="card" id="step1">
 
-======================================= -->
+  <div class="step">STEP 01</div>
 
-<section
-
-  class="card"
-
-  id="step1"
-
->
-
-  <div class="step">
-
-    STEP 01
-
-  </div>
-
-  <h2>
-
-    最初にどこへ出ましたか？
-
-  </h2>
+  <h2>最初にどこへ出ましたか？</h2>
 
   <p class="help">
 
@@ -1056,141 +640,63 @@ body {
 
   <div class="options">
 
-    <!-- LEFT -->
+    <button class="option" data-start="pull">
 
-    <button
+      <div class="option-left">
 
-      type="button"
+        <div class="icon">↖</div>
 
-      class="option"
+        <div class="text">
 
-      onclick="selectStart('pull', this)"
+          <strong>左に出た</strong>
 
-    >
-
-      <div class="option-main">
-
-        <div class="direction">
-
-          ↖
-
-        </div>
-
-        <div class="option-text">
-
-          <strong>
-
-            左に出た
-
-          </strong>
-
-          <small>
-
-            プル
-
-          </small>
+          <small>プル</small>
 
         </div>
 
       </div>
 
-      <div class="chevron">
-
-        ›
-
-      </div>
+      <div class="chevron">›</div>
 
     </button>
 
-    <!-- STRAIGHT -->
+    <button class="option" data-start="straight">
 
-    <button
+      <div class="option-left">
 
-      type="button"
+        <div class="icon">↑</div>
 
-      class="option"
+        <div class="text">
 
-      onclick="selectStart('straight', this)"
+          <strong>真っ直ぐ出た</strong>
 
-    >
-
-      <div class="option-main">
-
-        <div class="direction">
-
-          ↑
-
-        </div>
-
-        <div class="option-text">
-
-          <strong>
-
-            真っ直ぐ出た
-
-          </strong>
-
-          <small>
-
-            ストレート
-
-          </small>
+          <small>ストレート</small>
 
         </div>
 
       </div>
 
-      <div class="chevron">
-
-        ›
-
-      </div>
+      <div class="chevron">›</div>
 
     </button>
 
-    <!-- RIGHT -->
+    <button class="option" data-start="push">
 
-    <button
+      <div class="option-left">
 
-      type="button"
+        <div class="icon">↗</div>
 
-      class="option"
+        <div class="text">
 
-      onclick="selectStart('push', this)"
+          <strong>右に出た</strong>
 
-    >
-
-      <div class="option-main">
-
-        <div class="direction">
-
-          ↗
-
-        </div>
-
-        <div class="option-text">
-
-          <strong>
-
-            右に出た
-
-          </strong>
-
-          <small>
-
-            プッシュ
-
-          </small>
+          <small>プッシュ</small>
 
         </div>
 
       </div>
 
-      <div class="chevron">
-
-        ›
-
-      </div>
+      <div class="chevron">›</div>
 
     </button>
 
@@ -1198,11 +704,7 @@ body {
 
 </section>
 
-<!-- ======================================
-
-     STEP 2
-
-======================================= -->
+<!-- STEP 2 -->
 
 <section
 
@@ -1210,21 +712,13 @@ body {
 
   id="step2"
 
-  style="display:none;"
+  style="display:none"
 
 >
 
-  <div class="step">
+  <div class="step">STEP 02</div>
 
-    STEP 02
-
-  </div>
-
-  <h2>
-
-    その後どうなりましたか？
-
-  </h2>
+  <h2>その後どうなりましたか？</h2>
 
   <p class="help">
 
@@ -1236,141 +730,63 @@ body {
 
   <div class="options">
 
-    <!-- CURVE LEFT -->
+    <button class="option" data-curve="left">
 
-    <button
+      <div class="option-left">
 
-      type="button"
+        <div class="icon">↙</div>
 
-      class="option"
+        <div class="text">
 
-      onclick="selectCurve('left', this)"
+          <strong>左に曲がった</strong>
 
-    >
-
-      <div class="option-main">
-
-        <div class="direction">
-
-          ↙
-
-        </div>
-
-        <div class="option-text">
-
-          <strong>
-
-            左に曲がった
-
-          </strong>
-
-          <small>
-
-            フック方向
-
-          </small>
+          <small>フック方向</small>
 
         </div>
 
       </div>
 
-      <div class="chevron">
-
-        ›
-
-      </div>
+      <div class="chevron">›</div>
 
     </button>
 
-    <!-- NO CURVE -->
+    <button class="option" data-curve="straight">
 
-    <button
+      <div class="option-left">
 
-      type="button"
+        <div class="icon">↑</div>
 
-      class="option"
+        <div class="text">
 
-      onclick="selectCurve('straight', this)"
+          <strong>そのまま</strong>
 
-    >
-
-      <div class="option-main">
-
-        <div class="direction">
-
-          ↑
-
-        </div>
-
-        <div class="option-text">
-
-          <strong>
-
-            そのまま
-
-          </strong>
-
-          <small>
-
-            大きく曲がらない
-
-          </small>
+          <small>大きく曲がらない</small>
 
         </div>
 
       </div>
 
-      <div class="chevron">
-
-        ›
-
-      </div>
+      <div class="chevron">›</div>
 
     </button>
 
-    <!-- CURVE RIGHT -->
+    <button class="option" data-curve="right">
 
-    <button
+      <div class="option-left">
 
-      type="button"
+        <div class="icon">↗</div>
 
-      class="option"
+        <div class="text">
 
-      onclick="selectCurve('right', this)"
+          <strong>右に曲がった</strong>
 
-    >
-
-      <div class="option-main">
-
-        <div class="direction">
-
-          ↗
-
-        </div>
-
-        <div class="option-text">
-
-          <strong>
-
-            右に曲がった
-
-          </strong>
-
-          <small>
-
-            スライス方向
-
-          </small>
+          <small>スライス方向</small>
 
         </div>
 
       </div>
 
-      <div class="chevron">
-
-        ›
-
-      </div>
+      <div class="chevron">›</div>
 
     </button>
 
@@ -1378,17 +794,9 @@ body {
 
 </section>
 
-<!-- ======================================
+<!-- RESULT -->
 
-     RESULT
-
-======================================= -->
-
-<section
-
-  id="result-section"
-
->
+<section id="resultSection">
 
   <div class="result">
 
@@ -1398,14 +806,422 @@ body {
 
     </div>
 
-    <h2
-
-      class="result-title"
-
-      id="result-title">
-
-    </h2>
+    <h2 id="resultTitle"></h2>
 
     <div
 
-      class="
+      class="flight"
+
+      id="resultFlight">
+
+    </div>
+
+    <div class="result-grid">
+
+      <div class="result-box">
+
+        <small>フェースの向き</small>
+
+        <div class="value" id="face"></div>
+
+      </div>
+
+      <div class="result-box">
+
+        <small>クラブの通り道</small>
+
+        <div class="value" id="path"></div>
+
+      </div>
+
+    </div>
+
+    <div
+
+      class="explanation"
+
+      id="explanation">
+
+    </div>
+
+    <button
+
+      class="reset"
+
+      id="resetButton"
+
+    >
+
+      もう一度診断する
+
+    </button>
+
+  </div>
+
+</section>
+
+<div class="note">
+
+  ※この診断は、球筋を「フェースの向き」と
+
+  「クラブの通り道」から分かりやすく整理したものです。
+
+  実際の球筋には打点など他の要素も影響します。
+
+</div>
+
+<div class="footer">
+
+  GOLF GUTS ・ DESIGN YOUR GOLF LIFE
+
+</div>
+
+</main>
+
+<script>
+
+/* ===== 診断データ ===== */
+
+const data = {
+
+  pull:{
+
+    left:{
+
+      title:"プル①",
+
+      flight:"左に出て → 左に曲がる",
+
+      face:"左向き",
+
+      path:"内外"
+
+    },
+
+    straight:{
+
+      title:"プル②",
+
+      flight:"左に出て → そのまま",
+
+      face:"左向き",
+
+      path:"内外"
+
+    },
+
+    right:{
+
+      title:"プル③",
+
+      flight:"左に出て → 右に曲がる",
+
+      face:"左向き",
+
+      path:"外内"
+
+    }
+
+  },
+
+  straight:{
+
+    left:{
+
+      title:"ストレート①",
+
+      flight:"真っ直ぐ → 左に曲がる",
+
+      face:"真っ直ぐ",
+
+      path:"内外"
+
+    },
+
+    straight:{
+
+      title:"ストレート②",
+
+      flight:"真っ直ぐ → そのまま",
+
+      face:"真っ直ぐ",
+
+      path:"真っ直ぐ"
+
+    },
+
+    right:{
+
+      title:"ストレート③",
+
+      flight:"真っ直ぐ → 右に曲がる",
+
+      face:"真っ直ぐ",
+
+      path:"外内"
+
+    }
+
+  },
+
+  push:{
+
+    left:{
+
+      title:"プッシュ①",
+
+      flight:"右に出て → 左に曲がる",
+
+      face:"右向き",
+
+      path:"内外"
+
+    },
+
+    straight:{
+
+      title:"プッシュ②",
+
+      flight:"右に出て → そのまま",
+
+      face:"右向き",
+
+      path:"真っ直ぐ"
+
+    },
+
+    right:{
+
+      title:"プッシュ③",
+
+      flight:"右に出て → 右に曲がる",
+
+      face:"右向き",
+
+      path:"外内"
+
+    }
+
+  }
+
+};
+
+/* ===== 選択状態 ===== */
+
+let start = "";
+
+/* ===== STEP 1 ===== */
+
+document
+
+.querySelectorAll("[data-start]")
+
+.forEach(function(button){
+
+  button.addEventListener("click",function(){
+
+    start =
+
+      button.getAttribute("data-start");
+
+    document
+
+    .querySelectorAll("[data-start]")
+
+    .forEach(function(b){
+
+      b.classList.remove("selected");
+
+    });
+
+    button.classList.add("selected");
+
+    const step2 =
+
+      document.getElementById("step2");
+
+    step2.style.display = "block";
+
+    document
+
+    .getElementById("bar2")
+
+    .classList.add("active");
+
+    setTimeout(function(){
+
+      step2.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"center"
+
+      });
+
+    },100);
+
+  });
+
+});
+
+/* ===== STEP 2 ===== */
+
+document
+
+.querySelectorAll("[data-curve]")
+
+.forEach(function(button){
+
+  button.addEventListener("click",function(){
+
+    if(!start){
+
+      return;
+
+    }
+
+    document
+
+    .querySelectorAll("[data-curve]")
+
+    .forEach(function(b){
+
+      b.classList.remove("selected");
+
+    });
+
+    button.classList.add("selected");
+
+    const curve =
+
+      button.getAttribute("data-curve");
+
+    showResult(start,curve);
+
+  });
+
+});
+
+/* ===== 結果表示 ===== */
+
+function showResult(startValue,curveValue){
+
+  const result =
+
+    data[startValue][curveValue];
+
+  document
+
+  .getElementById("resultTitle")
+
+  .textContent =
+
+    result.title;
+
+  document
+
+  .getElementById("resultFlight")
+
+  .textContent =
+
+    result.flight;
+
+  document
+
+  .getElementById("face")
+
+  .textContent =
+
+    result.face;
+
+  document
+
+  .getElementById("path")
+
+  .textContent =
+
+    result.path;
+
+  document
+
+  .getElementById("explanation")
+
+  .innerHTML =
+
+    "今回の球筋では、フェースの向きは <strong>「" +
+
+    result.face +
+
+    "」</strong>、クラブの通り道は <strong>「" +
+
+    result.path +
+
+    "」</strong> と診断されます。";
+
+  const section =
+
+    document.getElementById("resultSection");
+
+  section.style.display = "block";
+
+  document
+
+  .getElementById("bar3")
+
+  .classList.add("active");
+
+  setTimeout(function(){
+
+    section.scrollIntoView({
+
+      behavior:"smooth",
+
+      block:"center"
+
+    });
+
+  },100);
+
+}
+
+/* ===== リセット ===== */
+
+document
+
+.getElementById("resetButton")
+
+.addEventListener("click",function(){
+
+  start = "";
+
+  document
+
+  .querySelectorAll(".option")
+
+  .forEach(function(button){
+
+    button.classList.remove("selected");
+
+  });
+
+  document
+
+  .getElementById("step2")
+
+  .style.display = "none";
+
+  document
+
+  .getElementById("resultSection")
+
+  .style.display = "none";
+
+  document
+
+  .getElementById("bar2")
+
+  .classList.remove("active");
+
+  document
+
+  .getElementById("bar3")
