@@ -12,555 +12,167 @@
 
 <style>
 
-*{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-
-  --bg:#f7f4ed;
-
-  --card:#fffdf8;
-
-  --black:#171512;
-
-  --green:#174f3d;
-
-  --gray:#77736c;
-
-  --line:#ddd9d0;
-
-  --soft:#e8efe9;
-
-}
+*{box-sizing:border-box}
 
 html{scroll-behavior:smooth}
 
 body{
 
-  background:var(--bg);
+ margin:0;
 
-  color:var(--black);
+ background:#f7f4ed;
 
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Yu Gothic",sans-serif;
+ color:#171512;
 
-  padding-top:110px;
+ font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Yu Gothic",sans-serif;
 
-  min-height:100vh;
-
-}
-
-/* 固定ロゴ */
-
-.header{
-
-  position:fixed;
-
-  top:0;
-
-  left:0;
-
-  width:100%;
-
-  height:110px;
-
-  z-index:1000;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  background:rgba(247,244,237,.97);
-
-  border-bottom:1px solid rgba(0,0,0,.06);
+ padding-top:105px
 
 }
 
-.logo{
+header{
 
-  width:min(350px,80vw);
+ position:fixed;top:0;left:0;right:0;height:105px;z-index:99;
 
-  height:auto;
+ display:flex;align-items:center;justify-content:center;
 
-  display:block;
-
-}
-
-/* 全体 */
-
-.page{
-
-  max-width:760px;
-
-  margin:auto;
-
-  padding:40px 16px 70px;
+ background:#f7f4ed;border-bottom:1px solid #e4e0d8
 
 }
 
-/* TOP */
+header img{width:min(340px,80vw);height:auto}
 
-.hero{
+main{max-width:720px;margin:auto;padding:35px 16px 70px}
 
-  text-align:center;
+.hero{text-align:center;padding:10px 0 32px}
 
-  padding:10px 0 35px;
+.hero small{color:#174f3d;font-weight:800;letter-spacing:3px}
 
-}
+.hero h1{font-size:34px;line-height:1.3;margin:15px 0 12px}
 
-.eyebrow{
+.hero p{color:#77736c;line-height:1.8;margin:0;font-size:14px}
 
-  color:var(--green);
+.progress{display:flex;justify-content:center;gap:8px;margin-bottom:22px}
 
-  font-size:11px;
+.bar{width:60px;height:4px;background:#d8d5cd;border-radius:20px}
 
-  font-weight:800;
-
-  letter-spacing:4px;
-
-  margin-bottom:15px;
-
-}
-
-.hero h1{
-
-  font-size:36px;
-
-  line-height:1.3;
-
-  margin-bottom:16px;
-
-}
-
-.hero p{
-
-  color:var(--gray);
-
-  font-size:15px;
-
-  line-height:1.9;
-
-}
-
-/* 進行バー */
-
-.progress{
-
-  display:flex;
-
-  justify-content:center;
-
-  gap:9px;
-
-  margin-bottom:24px;
-
-}
-
-.bar{
-
-  width:62px;
-
-  height:4px;
-
-  border-radius:20px;
-
-  background:#d8d5cd;
-
-}
-
-.bar.active{
-
-  background:var(--green);
-
-}
-
-/* カード */
+.bar.on{background:#174f3d}
 
 .card{
 
-  background:var(--card);
+ background:#fffdf8;border-radius:24px;padding:25px 19px;
 
-  border-radius:25px;
+ margin-bottom:20px;border:1px solid #e8e4dc;
 
-  padding:27px 21px;
-
-  margin-bottom:20px;
-
-  border:1px solid rgba(0,0,0,.06);
-
-  box-shadow:0 14px 40px rgba(40,35,28,.06);
+ box-shadow:0 12px 35px rgba(0,0,0,.05)
 
 }
 
 .step{
 
-  display:inline-block;
+ display:inline-block;background:#e8efe9;color:#174f3d;
 
-  padding:7px 13px;
+ padding:7px 12px;border-radius:30px;font-size:11px;
 
-  border-radius:30px;
-
-  background:var(--soft);
-
-  color:var(--green);
-
-  font-size:11px;
-
-  font-weight:800;
-
-  letter-spacing:2px;
-
-  margin-bottom:15px;
+ font-weight:800;letter-spacing:2px
 
 }
 
-.card h2{
+.card h2{font-size:22px;margin:14px 0 7px}
 
-  font-size:23px;
+.help{color:#77736c;font-size:13px;line-height:1.8;margin:0 0 20px}
 
-  margin-bottom:9px;
-
-}
-
-.help{
-
-  color:var(--gray);
-
-  font-size:14px;
-
-  line-height:1.8;
-
-  margin-bottom:22px;
-
-}
-
-/* 選択肢 */
-
-.options{
-
-  display:grid;
-
-  gap:11px;
-
-}
+.options{display:grid;gap:10px}
 
 .option{
 
-  width:100%;
+ width:100%;display:flex;align-items:center;justify-content:space-between;
 
-  border:1px solid var(--line);
+ border:1px solid #ddd9d0;border-radius:17px;background:white;
 
-  border-radius:18px;
-
-  background:#fff;
-
-  padding:17px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  color:var(--black);
-
-  text-align:left;
-
-  cursor:pointer;
-
-  -webkit-tap-highlight-color:transparent;
+ padding:16px;color:#171512;text-align:left;font:inherit;cursor:pointer
 
 }
 
-.option-left{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:14px;
-
-}
+.left{display:flex;align-items:center;gap:13px}
 
 .icon{
 
-  width:42px;
+ width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
 
-  height:42px;
-
-  border-radius:50%;
-
-  display:grid;
-
-  place-items:center;
-
-  background:var(--soft);
-
-  color:var(--green);
-
-  font-size:22px;
+ background:#e8efe9;color:#174f3d;font-size:21px
 
 }
 
-.text strong{
+.label strong{display:block;font-size:16px}
 
-  display:block;
+.label small{color:#77736c;font-size:12px}
 
-  font-size:17px;
+.arrow{font-size:23px;color:#aaa69e}
 
-  margin-bottom:3px;
+.option.selected{background:#174f3d;color:white;border-color:#174f3d}
 
-}
+.option.selected .icon{background:#ffffff20;color:white}
 
-.text small{
+.option.selected small,.option.selected .arrow{color:#ffffffc0}
 
-  display:block;
-
-  color:var(--gray);
-
-  font-size:12px;
-
-}
-
-.chevron{
-
-  color:#aaa69e;
-
-  font-size:24px;
-
-}
-
-.option.selected{
-
-  background:var(--green);
-
-  border-color:var(--green);
-
-  color:white;
-
-}
-
-.option.selected .icon{
-
-  background:rgba(255,255,255,.15);
-
-  color:white;
-
-}
-
-.option.selected small,
-
-.option.selected .chevron{
-
-  color:rgba(255,255,255,.8);
-
-}
-
-/* 結果 */
-
-#resultSection{
-
-  display:none;
-
-}
+#step2,#result{display:none}
 
 .result{
 
-  background:linear-gradient(145deg,#102d24,#174f3d);
+ background:linear-gradient(145deg,#102d24,#174f3d);
 
-  color:white;
+ color:white;border-radius:25px;padding:27px 20px;
 
-  border-radius:27px;
-
-  padding:29px 22px;
-
-  box-shadow:0 20px 50px rgba(16,45,36,.18);
+ box-shadow:0 18px 45px rgba(16,45,36,.18)
 
 }
 
-.result-label{
+.result>small{color:#a9cabc;font-weight:800;letter-spacing:3px}
 
-  color:#a9cabc;
+.result h2{font-size:29px;margin:11px 0 5px}
 
-  font-size:11px;
+.flight{color:#ffffffc0;margin-bottom:22px}
 
-  font-weight:800;
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 
-  letter-spacing:3px;
+.box{background:#ffffff16;border:1px solid #ffffff20;border-radius:16px;padding:17px}
 
-  margin-bottom:11px;
+.box small{color:#b8cdc4}
 
-}
+.value{font-size:24px;font-weight:800;margin-top:8px}
 
-.result h2{
+.explain{
 
-  font-size:30px;
+ margin-top:12px;background:#ffffff12;border-radius:16px;
 
-  margin-bottom:7px;
-
-}
-
-.flight{
-
-  color:rgba(255,255,255,.75);
-
-  font-size:16px;
-
-  margin-bottom:24px;
-
-}
-
-.result-grid{
-
-  display:grid;
-
-  grid-template-columns:1fr 1fr;
-
-  gap:11px;
-
-}
-
-.result-box{
-
-  background:rgba(255,255,255,.09);
-
-  border:1px solid rgba(255,255,255,.12);
-
-  border-radius:17px;
-
-  padding:18px;
-
-}
-
-.result-box small{
-
-  display:block;
-
-  color:#b8cdc4;
-
-  font-size:12px;
-
-  margin-bottom:9px;
-
-}
-
-.value{
-
-  font-size:25px;
-
-  font-weight:800;
-
-}
-
-.explanation{
-
-  margin-top:13px;
-
-  padding:17px;
-
-  border-radius:17px;
-
-  background:rgba(255,255,255,.07);
-
-  font-size:14px;
-
-  line-height:1.9;
+ padding:16px;font-size:13px;line-height:1.8
 
 }
 
 .reset{
 
-  width:100%;
+ width:100%;border:0;border-radius:15px;background:white;color:#174f3d;
 
-  border:0;
-
-  border-radius:15px;
-
-  background:white;
-
-  color:var(--green);
-
-  padding:17px;
-
-  margin-top:17px;
-
-  font-size:15px;
-
-  font-weight:800;
-
-  cursor:pointer;
+ padding:16px;margin-top:15px;font-weight:800;font-size:14px
 
 }
-
-/* 補足 */
 
 .note{
 
-  margin-top:25px;
+ color:#77736c;font-size:11px;line-height:1.8;
 
-  padding:20px 4px;
-
-  border-top:1px solid var(--line);
-
-  color:var(--gray);
-
-  font-size:12px;
-
-  line-height:1.9;
+ border-top:1px solid #ddd9d0;margin-top:24px;padding-top:18px
 
 }
 
-.footer{
-
-  text-align:center;
-
-  color:#99958d;
-
-  font-size:10px;
-
-  letter-spacing:2px;
-
-  margin-top:40px;
-
-}
-
-/* スマホ */
-
-@media(max-width:600px){
-
-  body{padding-top:100px}
-
-  .header{height:100px}
-
-  .logo{width:82vw}
-
-  .page{padding:28px 15px 60px}
-
-  .hero h1{font-size:31px}
-
-  .card{
-
-    padding:24px 18px;
-
-    border-radius:22px;
-
-  }
-
-  .card h2{font-size:21px}
-
-  .result{
-
-    padding:26px 19px;
-
-    border-radius:23px;
-
-  }
-
-}
+footer{text-align:center;color:#99958d;font-size:10px;letter-spacing:2px;margin-top:38px}
 
 @media(max-width:390px){
 
-  .result-grid{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr}
+
+ .hero h1{font-size:30px}
 
 }
 
@@ -570,658 +182,290 @@ body{
 
 <body>
 
-<header class="header">
+<header>
 
-  <img
-
-    src="IMG_0932.jpeg"
-
-    alt="GOLF GUTS"
-
-    class="logo"
-
-  >
+ <img src="IMG_0932.jpeg" alt="GOLF GUTS">
 
 </header>
 
-<main class="page">
+<main>
 
 <section class="hero">
 
-  <div class="eyebrow">
+ <small>BALL FLIGHT DIAGNOSIS</small>
 
-    BALL FLIGHT DIAGNOSIS
+ <h1>あなたの球筋を<br>かんたん診断</h1>
 
-  </div>
-
-  <h1>
-
-    あなたの球筋を<br>
-
-    かんたん診断
-
-  </h1>
-
-  <p>
-
-    ボールが最初に飛び出した方向と、<br>
-
-    その後の曲がり方を選ぶだけ。
-
-  </p>
+ <p>ボールが最初に飛び出した方向と、<br>その後の曲がり方を選ぶだけ。</p>
 
 </section>
 
 <div class="progress">
 
-  <div class="bar active" id="bar1"></div>
+ <div class="bar on" id="b1"></div>
 
-  <div class="bar" id="bar2"></div>
+ <div class="bar" id="b2"></div>
 
-  <div class="bar" id="bar3"></div>
+ <div class="bar" id="b3"></div>
 
 </div>
 
-<!-- STEP 1 -->
-
 <section class="card" id="step1">
 
-  <div class="step">STEP 01</div>
+ <span class="step">STEP 01</span>
 
-  <h2>最初にどこへ出ましたか？</h2>
+ <h2>最初にどこへ出ましたか？</h2>
 
-  <p class="help">
+ <p class="help">最終的に飛んだ場所ではなく、打った直後のボールの方向を選んでください。</p>
 
-    最終的に飛んだ場所ではなく、
+ <div class="options">
 
-    打った直後のボールの方向を選んでください。
+  <button class="option" data-start="pull">
 
-  </p>
+   <span class="left"><span class="icon">↖</span><span class="label"><strong>左に出た</strong><small>プル</small></span></span>
 
-  <div class="options">
+   <span class="arrow">›</span>
 
-    <button class="option" data-start="pull">
+  </button>
 
-      <div class="option-left">
+  <button class="option" data-start="straight">
 
-        <div class="icon">↖</div>
+   <span class="left"><span class="icon">↑</span><span class="label"><strong>真っ直ぐ出た</strong><small>ストレート</small></span></span>
 
-        <div class="text">
+   <span class="arrow">›</span>
 
-          <strong>左に出た</strong>
+  </button>
 
-          <small>プル</small>
+  <button class="option" data-start="push">
 
-        </div>
+   <span class="left"><span class="icon">↗</span><span class="label"><strong>右に出た</strong><small>プッシュ</small></span></span>
 
-      </div>
+   <span class="arrow">›</span>
 
-      <div class="chevron">›</div>
+  </button>
 
-    </button>
-
-    <button class="option" data-start="straight">
-
-      <div class="option-left">
-
-        <div class="icon">↑</div>
-
-        <div class="text">
-
-          <strong>真っ直ぐ出た</strong>
-
-          <small>ストレート</small>
-
-        </div>
-
-      </div>
-
-      <div class="chevron">›</div>
-
-    </button>
-
-    <button class="option" data-start="push">
-
-      <div class="option-left">
-
-        <div class="icon">↗</div>
-
-        <div class="text">
-
-          <strong>右に出た</strong>
-
-          <small>プッシュ</small>
-
-        </div>
-
-      </div>
-
-      <div class="chevron">›</div>
-
-    </button>
-
-  </div>
+ </div>
 
 </section>
 
-<!-- STEP 2 -->
+<section class="card" id="step2">
 
-<section
+ <span class="step">STEP 02</span>
 
-  class="card"
+ <h2>その後どうなりましたか？</h2>
 
-  id="step2"
+ <p class="help">ボールが飛び出した後の曲がり方を選んでください。</p>
 
-  style="display:none"
+ <div class="options">
 
->
+  <button class="option" data-curve="left">
 
-  <div class="step">STEP 02</div>
+   <span class="left"><span class="icon">↙</span><span class="label"><strong>左に曲がった</strong><small>フック方向</small></span></span>
 
-  <h2>その後どうなりましたか？</h2>
+   <span class="arrow">›</span>
 
-  <p class="help">
+  </button>
 
-    ボールが飛び出した後の
+  <button class="option" data-curve="straight">
 
-    曲がり方を選んでください。
+   <span class="left"><span class="icon">↑</span><span class="label"><strong>そのまま</strong><small>大きく曲がらない</small></span></span>
 
-  </p>
+   <span class="arrow">›</span>
 
-  <div class="options">
+  </button>
 
-    <button class="option" data-curve="left">
+  <button class="option" data-curve="right">
 
-      <div class="option-left">
+   <span class="left"><span class="icon">↗</span><span class="label"><strong>右に曲がった</strong><small>スライス方向</small></span></span>
 
-        <div class="icon">↙</div>
+   <span class="arrow">›</span>
 
-        <div class="text">
+  </button>
 
-          <strong>左に曲がった</strong>
-
-          <small>フック方向</small>
-
-        </div>
-
-      </div>
-
-      <div class="chevron">›</div>
-
-    </button>
-
-    <button class="option" data-curve="straight">
-
-      <div class="option-left">
-
-        <div class="icon">↑</div>
-
-        <div class="text">
-
-          <strong>そのまま</strong>
-
-          <small>大きく曲がらない</small>
-
-        </div>
-
-      </div>
-
-      <div class="chevron">›</div>
-
-    </button>
-
-    <button class="option" data-curve="right">
-
-      <div class="option-left">
-
-        <div class="icon">↗</div>
-
-        <div class="text">
-
-          <strong>右に曲がった</strong>
-
-          <small>スライス方向</small>
-
-        </div>
-
-      </div>
-
-      <div class="chevron">›</div>
-
-    </button>
-
-  </div>
+ </div>
 
 </section>
 
-<!-- RESULT -->
+<section id="result">
 
-<section id="resultSection">
+ <div class="result">
 
-  <div class="result">
+  <small>YOUR RESULT</small>
 
-    <div class="result-label">
+  <h2 id="title"></h2>
 
-      YOUR RESULT
+  <div class="flight" id="flight"></div>
 
-    </div>
+  <div class="grid">
 
-    <h2 id="resultTitle"></h2>
+   <div class="box">
 
-    <div
+    <small>フェースの向き</small>
 
-      class="flight"
+    <div class="value" id="face"></div>
 
-      id="resultFlight">
+   </div>
 
-    </div>
+   <div class="box">
 
-    <div class="result-grid">
+    <small>クラブの通り道</small>
 
-      <div class="result-box">
+    <div class="value" id="path"></div>
 
-        <small>フェースの向き</small>
-
-        <div class="value" id="face"></div>
-
-      </div>
-
-      <div class="result-box">
-
-        <small>クラブの通り道</small>
-
-        <div class="value" id="path"></div>
-
-      </div>
-
-    </div>
-
-    <div
-
-      class="explanation"
-
-      id="explanation">
-
-    </div>
-
-    <button
-
-      class="reset"
-
-      id="resetButton"
-
-    >
-
-      もう一度診断する
-
-    </button>
+   </div>
 
   </div>
+
+  <div class="explain" id="explain"></div>
+
+  <button class="reset" id="reset">もう一度診断する</button>
+
+ </div>
 
 </section>
 
 <div class="note">
 
-  ※この診断は、球筋を「フェースの向き」と
-
-  「クラブの通り道」から分かりやすく整理したものです。
-
-  実際の球筋には打点など他の要素も影響します。
+ ※この診断は、球筋を「フェースの向き」と「クラブの通り道」から分かりやすく整理したものです。実際の球筋には打点など他の要素も影響します。
 
 </div>
 
-<div class="footer">
-
-  GOLF GUTS ・ DESIGN YOUR GOLF LIFE
-
-</div>
+<footer>GOLF GUTS ・ DESIGN YOUR GOLF LIFE</footer>
 
 </main>
 
 <script>
 
-/* ===== 診断データ ===== */
+const D={
 
-const data = {
+ pull:{
 
-  pull:{
+  left:["プル①","左に出て → 左に曲がる","左向き","内外"],
 
-    left:{
+  straight:["プル②","左に出て → そのまま","左向き","内外"],
 
-      title:"プル①",
+  right:["プル③","左に出て → 右に曲がる","左向き","外内"]
 
-      flight:"左に出て → 左に曲がる",
+ },
 
-      face:"左向き",
+ straight:{
 
-      path:"内外"
+  left:["ストレート①","真っ直ぐ → 左に曲がる","真っ直ぐ","内外"],
 
-    },
+  straight:["ストレート②","真っ直ぐ → そのまま","真っ直ぐ","真っ直ぐ"],
 
-    straight:{
+  right:["ストレート③","真っ直ぐ → 右に曲がる","真っ直ぐ","外内"]
 
-      title:"プル②",
+ },
 
-      flight:"左に出て → そのまま",
+ push:{
 
-      face:"左向き",
+  left:["プッシュ①","右に出て → 左に曲がる","右向き","内外"],
 
-      path:"内外"
+  straight:["プッシュ②","右に出て → そのまま","右向き","真っ直ぐ"],
 
-    },
+  right:["プッシュ③","右に出て → 右に曲がる","右向き","外内"]
 
-    right:{
-
-      title:"プル③",
-
-      flight:"左に出て → 右に曲がる",
-
-      face:"左向き",
-
-      path:"外内"
-
-    }
-
-  },
-
-  straight:{
-
-    left:{
-
-      title:"ストレート①",
-
-      flight:"真っ直ぐ → 左に曲がる",
-
-      face:"真っ直ぐ",
-
-      path:"内外"
-
-    },
-
-    straight:{
-
-      title:"ストレート②",
-
-      flight:"真っ直ぐ → そのまま",
-
-      face:"真っ直ぐ",
-
-      path:"真っ直ぐ"
-
-    },
-
-    right:{
-
-      title:"ストレート③",
-
-      flight:"真っ直ぐ → 右に曲がる",
-
-      face:"真っ直ぐ",
-
-      path:"外内"
-
-    }
-
-  },
-
-  push:{
-
-    left:{
-
-      title:"プッシュ①",
-
-      flight:"右に出て → 左に曲がる",
-
-      face:"右向き",
-
-      path:"内外"
-
-    },
-
-    straight:{
-
-      title:"プッシュ②",
-
-      flight:"右に出て → そのまま",
-
-      face:"右向き",
-
-      path:"真っ直ぐ"
-
-    },
-
-    right:{
-
-      title:"プッシュ③",
-
-      flight:"右に出て → 右に曲がる",
-
-      face:"右向き",
-
-      path:"外内"
-
-    }
-
-  }
+ }
 
 };
 
-/* ===== 選択状態 ===== */
+let start="";
 
-let start = "";
+const step2=document.getElementById("step2");
 
-/* ===== STEP 1 ===== */
+const result=document.getElementById("result");
 
-document
+const b2=document.getElementById("b2");
 
-.querySelectorAll("[data-start]")
+const b3=document.getElementById("b3");
 
-.forEach(function(button){
+document.querySelectorAll("[data-start]").forEach(btn=>{
 
-  button.addEventListener("click",function(){
+ btn.addEventListener("click",()=>{
 
-    start =
+  start=btn.dataset.start;
 
-      button.getAttribute("data-start");
+  document.querySelectorAll("[data-start]").forEach(x=>x.classList.remove("selected"));
 
-    document
+  btn.classList.add("selected");
 
-    .querySelectorAll("[data-start]")
+  step2.style.display="block";
 
-    .forEach(function(b){
+  result.style.display="none";
 
-      b.classList.remove("selected");
+  b2.classList.add("on");
 
-    });
+  b3.classList.remove("on");
 
-    button.classList.add("selected");
+  setTimeout(()=>{
 
-    const step2 =
-
-      document.getElementById("step2");
-
-    step2.style.display = "block";
-
-    document
-
-    .getElementById("bar2")
-
-    .classList.add("active");
-
-    setTimeout(function(){
-
-      step2.scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"center"
-
-      });
-
-    },100);
-
-  });
-
-});
-
-/* ===== STEP 2 ===== */
-
-document
-
-.querySelectorAll("[data-curve]")
-
-.forEach(function(button){
-
-  button.addEventListener("click",function(){
-
-    if(!start){
-
-      return;
-
-    }
-
-    document
-
-    .querySelectorAll("[data-curve]")
-
-    .forEach(function(b){
-
-      b.classList.remove("selected");
-
-    });
-
-    button.classList.add("selected");
-
-    const curve =
-
-      button.getAttribute("data-curve");
-
-    showResult(start,curve);
-
-  });
-
-});
-
-/* ===== 結果表示 ===== */
-
-function showResult(startValue,curveValue){
-
-  const result =
-
-    data[startValue][curveValue];
-
-  document
-
-  .getElementById("resultTitle")
-
-  .textContent =
-
-    result.title;
-
-  document
-
-  .getElementById("resultFlight")
-
-  .textContent =
-
-    result.flight;
-
-  document
-
-  .getElementById("face")
-
-  .textContent =
-
-    result.face;
-
-  document
-
-  .getElementById("path")
-
-  .textContent =
-
-    result.path;
-
-  document
-
-  .getElementById("explanation")
-
-  .innerHTML =
-
-    "今回の球筋では、フェースの向きは <strong>「" +
-
-    result.face +
-
-    "」</strong>、クラブの通り道は <strong>「" +
-
-    result.path +
-
-    "」</strong> と診断されます。";
-
-  const section =
-
-    document.getElementById("resultSection");
-
-  section.style.display = "block";
-
-  document
-
-  .getElementById("bar3")
-
-  .classList.add("active");
-
-  setTimeout(function(){
-
-    section.scrollIntoView({
-
-      behavior:"smooth",
-
-      block:"center"
-
-    });
+   step2.scrollIntoView({behavior:"smooth",block:"center"});
 
   },100);
 
-}
+ });
 
-/* ===== リセット ===== */
+});
 
-document
+document.querySelectorAll("[data-curve]").forEach(btn=>{
 
-.getElementById("resetButton")
+ btn.addEventListener("click",()=>{
 
-.addEventListener("click",function(){
+  if(!start)return;
 
-  start = "";
+  document.querySelectorAll("[data-curve]").forEach(x=>x.classList.remove("selected"));
 
-  document
+  btn.classList.add("selected");
 
-  .querySelectorAll(".option")
+  const r=D[start][btn.dataset.curve];
 
-  .forEach(function(button){
+  document.getElementById("title").textContent=r[0];
 
-    button.classList.remove("selected");
+  document.getElementById("flight").textContent=r[1];
 
-  });
+  document.getElementById("face").textContent=r[2];
 
-  document
+  document.getElementById("path").textContent=r[3];
 
-  .getElementById("step2")
+  document.getElementById("explain").innerHTML=
 
-  .style.display = "none";
+   'フェースの向きは <strong>「'+r[2]+'」</strong>、クラブの通り道は <strong>「'+r[3]+'」</strong> と診断されます。';
 
-  document
+  result.style.display="block";
 
-  .getElementById("resultSection")
+  b3.classList.add("on");
 
-  .style.display = "none";
+  setTimeout(()=>{
 
-  document
+   result.scrollIntoView({behavior:"smooth",block:"center"});
 
-  .getElementById("bar2")
+  },100);
 
-  .classList.remove("active");
+ });
 
-  document
+});
 
-  .getElementById("bar3")
+document.getElementById("reset").addEventListener("click",()=>{
+
+ start="";
+
+ document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));
+
+ step2.style.display="none";
+
+ result.style.display="none";
+
+ b2.classList.remove("on");
+
+ b3.classList.remove("on");
+
+ window.scrollTo({top:0,behavior:"smooth"});
+
+});
+
+</script>
+
+</body>
+
+</html>
